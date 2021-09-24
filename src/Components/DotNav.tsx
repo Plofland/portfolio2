@@ -7,7 +7,7 @@ export default function DotNav() {
 	return (
 		<StyledNav>
 			<li>
-				<a href="/about">
+				<a href="#about">
 					<CircleIcon
 						icon={['far', 'circle']}
 						size="lg"
@@ -15,7 +15,7 @@ export default function DotNav() {
 				</a>
 			</li>
 			<li>
-				<a href="/skills">
+				<a href="#skills">
 					<CircleIcon
 						icon={['far', 'circle']}
 						size="lg"
@@ -23,7 +23,7 @@ export default function DotNav() {
 				</a>
 			</li>
 			<li>
-				<a href="/projects">
+				<a href="#projects">
 					<CircleIcon
 						icon={['far', 'circle']}
 						size="lg"
@@ -38,6 +38,11 @@ const StyledNav = styled.ul`
 	display: flex;
 	height: 100vh;
 	background-color: black;
+
+    li {
+        text-decoration: none;
+    }
+    
     a {
         color: purple;
     }

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 export default function Skills() {
-	return <StyledSkills></StyledSkills>;
+	return <StyledSkills id='skills'></StyledSkills>;
 }
 
 const StyledSkills = styled.div`
