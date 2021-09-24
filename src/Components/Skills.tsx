@@ -8,5 +8,5 @@ export default function Skills() {
 const StyledSkills = styled.div`
 	display: flex;
 	height: 100vh;
-	background-color: blue;
+	background-color: green;
 `;

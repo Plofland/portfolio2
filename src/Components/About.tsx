@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default function AboutMe() {
-	return <StyledAboutMe></StyledAboutMe>;
+export default function About() {
+	return <StyledAbout></StyledAbout>;
 }
 
-const StyledAboutMe = styled.div`
+const StyledAbout = styled.div`
 	display: flex;
 	height: 100vh;
 	background-color: white;
