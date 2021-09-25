@@ -14,13 +14,13 @@ export const mq = facepaint(
 );
 
 export const colors = {
-	grayChateau: '#9EA9B3',
-	darkLavender: '#0A1926',
-	lightLavender: '#EBDBEB',
+	forrestGreen: '#3A5953',
+	darkBlue: '#2A2A3B',
+	ivory: '#E0DDE1',
+	midnightBlue: '#3A5673',
+	turquoise: '#51B9CD',
 	darkText: '#222222',
-	lightText: '#F9F9F9',
-	cyanBlue: '#173755',
-	cyanBlueTrans: 'rgba(23, 55, 85, 0.7)'
+	lightText: '#E7FEFE'
 };
 
 export const GlobalStyles = createGlobalStyle`
@@ -36,7 +36,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-	background: ${colors.darkLavender};
+	background: ${colors.forrestGreen};
 	color: ${colors.lightText};
 	font-family: 'Hammersmith One', -apple-system, sans-serif;
     text-rendering: optimizeLegibility;
