@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useMediaQuery } from 'react-responsive';
-// import { colors } from '../Themes';
+import { colors } from '../Themes';
 
 // interface ProjectState = {
 
@@ -66,6 +66,10 @@ const ProjectTile = styled.a`
 	flex-direction: column;
 	border-radius: 5px;
 	text-decoration: none;
+
+    &:hover{
+       color: ${colors.darkText} 
+    }
 `;
 
 const ImageContainer = styled.div`
@@ -77,7 +81,7 @@ const TextOverlay = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
-	color: $background;
+	color: ${colors.forrestGreen};
 	background: rgba(0, 0, 0, 0.8);
 	height: 100%;
 	text-align: center;
@@ -87,10 +91,10 @@ const TextOverlay = styled.div`
 
 const ProjectTitle = styled.h4`
 	display: flex;
-	background-color: skyBlue;
+	background-color: blue;
 	background-image: linear-gradient(
 		to top,
-		skyBlue,
+		blue,
 		rgba(255, 255, 255, 0.4)
 	);
 	color: black;
