@@ -29,7 +29,7 @@ export const GlobalStyles = createGlobalStyle`
 	box-sizing: border-box;
   }
 
-  html, body {
+  html, body, ul {
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;

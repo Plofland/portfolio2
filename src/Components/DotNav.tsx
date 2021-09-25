@@ -1,51 +1,75 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { mq } from '../Themes/index';
+import { useMediaQuery } from 'react-responsive';
 
 export default function DotNav() {
+	const isMobile = useMediaQuery({
+		query: '(max-width: 750px)'
+	});
+	// const [active, setActive] = useState(false);
+
+
+    // console.log(active);
 	return (
-		<StyledNav>
-			<li>
-				<a href="#about">
-					<CircleIcon
-						icon={['far', 'circle']}
-						size="lg"
-					/>
-				</a>
-			</li>
-			<li>
-				<a href="#skills">
-					<CircleIcon
-						icon={['far', 'circle']}
-						size="lg"
-					/>
-				</a>
-			</li>
-			<li>
-				<a href="#projects">
-					<CircleIcon
-						icon={['far', 'circle']}
-						size="lg"
-					/>
-				</a>
-			</li>
-		</StyledNav>
+		<MainStay>
+			<UnorderedNav>
+				<li>
+					<a
+						href="#about"
+						// onClick={setActive(true)}
+					>
+						<CircleIcon
+							icon={['far', 'circle']}
+							size={isMobile ? 'xs' : 'sm'}
+						/>
+					</a>
+				</li>
+				<li>
+					<a
+						href="#skills"
+						// onClick={setActive(true)}
+					>
+						<CircleIcon
+							icon={['far', 'circle']}
+							size={isMobile ? 'xs' : 'sm'}
+						/>
+					</a>
+				</li>
+				<li>
+					<a
+						href="#projects"
+						// onClick={setActive(true)}
+					>
+						<CircleIcon
+							icon={['far', 'circle']}
+							size={isMobile ? 'xs' : 'sm'}
+						/>
+					</a>
+				</li>
+			</UnorderedNav>
+		</MainStay>
 	);
 }
 
-const StyledNav = styled.ul`
+const MainStay = styled.div`
 	display: flex;
-	height: 100vh;
-	background-color: black;
+	align-items: center;
+	height: 100%;
+	position: fixed;
+	right: 1rem;
+`;
 
-    li {
-        text-decoration: none;
-    }
-    
-    a {
-        color: purple;
-    }
+const UnorderedNav = styled.ul`
+	display: flex;
+	flex-direction: column;
+	list-style-type: none;
+
+	a {
+		color: purple;
+		display: flex;
+	}
 `;
 const CircleIcon = styled(FontAwesomeIcon)`
 	${mq({ margin: ['.5rem', '.4rem', '0.5rem'] })};
