@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import projectsList from '../../public/projectsList'
-import ProjectCard from './ProjectCard';
+// import projectsList from '../projectsList'
+// import ProjectCard from './ProjectCard';
 
 // interface ProjectState = {
 
@@ -11,7 +11,7 @@ export default function Projects() {
 	return (
 		<StyledProjects id="projects">
 			<SectionTitle>Projects</SectionTitle>
-			<ProjectsContainer>
+			{/* <ProjectsContainer>
 				{projectsList.map((project) => {
 					return (
 						<ProjectCard
@@ -20,7 +20,7 @@ export default function Projects() {
 						/>
 					);
 				})}
-			</ProjectsContainer>
+			</ProjectsContainer> */}
 		</StyledProjects>
 	);
 }
@@ -35,6 +35,6 @@ const StyledProjects = styled.div`
 const SectionTitle = styled.div`
 	font-size: 3rem;
 `;
-const ProjectsContainer = styled.div`
-	display: flex;
-`;
+// const ProjectsContainer = styled.div`
+// 	display: flex;
+// `;

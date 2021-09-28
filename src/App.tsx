@@ -10,10 +10,11 @@ import Hero from './Components/Hero';
 import DotNav from './Components/DotNav';
 
 //*Icons
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faCircle } from '@fortawesome/free-regular-svg-icons';
+// import { library } from '@fortawesome/fontawesome-svg-core';
+// import { faCircle } from '@fortawesome/free-regular-svg-icons';
+// import { faCircle as fasCircle } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faCircle);
+// library.add(faCircle);
 
 function App() {
 	return (
