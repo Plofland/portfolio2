@@ -1,18 +1,36 @@
 import React from 'react';
 import styled from 'styled-components';
-// import projectsList from '../projectsList'
-// import ProjectCard from './ProjectCard';
+import projectsList from '../projectsList'
+import ProjectCard from './ProjectCard';
+import { IProject } from './Interfaces';
 
-// interface ProjectState = {
+// interface IProject {
+// 	hrefLink: string;
+// 	description: string;
+// 	imgSrc: string;
+// 	imgAlt: string;
+// 	projectName: string;
+// }
 
+// type Props = {
+//     projectsList: 
 // }
 
 export default function Projects() {
+
+    // let options = {
+    //     root: document.querySelector('#scrollArea'),
+    //     rootMargin: '0px',
+    //     threshold: 1.0
+    //   }
+      
+    //   let observer = new IntersectionObserver(callback, options);
+console.log(projectsList)
 	return (
 		<StyledProjects id="projects">
 			<SectionTitle>Projects</SectionTitle>
-			{/* <ProjectsContainer>
-				{projectsList.map((project) => {
+			<ProjectsContainer>
+				{projectsList.map((project: IProject, key: number) => {
 					return (
 						<ProjectCard
 							key={project.id}
@@ -20,7 +38,7 @@ export default function Projects() {
 						/>
 					);
 				})}
-			</ProjectsContainer> */}
+			</ProjectsContainer>
 		</StyledProjects>
 	);
 }
@@ -35,6 +53,7 @@ const StyledProjects = styled.div`
 const SectionTitle = styled.div`
 	font-size: 3rem;
 `;
-// const ProjectsContainer = styled.div`
-// 	display: flex;
-// `;
+
+const ProjectsContainer = styled.div`
+	display: flex;
+`;

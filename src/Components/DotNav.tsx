@@ -10,7 +10,7 @@ export default function DotNav() {
 	const isMobile = useMediaQuery({
 		query: '(max-width: 750px)'
 	});
-	const [active, setActive] = useState(true);
+	const [active, setActive] = useState(false);
 
 	// console.log(active);
 	return (
@@ -19,7 +19,7 @@ export default function DotNav() {
 				<li>
 					<a
 						href="#about"
-						onClick={() => setActive(true)}
+						onClick={() => setActive(!active)}
 					>
 						<CircleIcon
 							icon={active ? fasCircle : faCircle}
@@ -30,10 +30,10 @@ export default function DotNav() {
 				<li>
 					<a
 						href="#skills"
-						onClick={() => setActive(true)}
+						onClick={() => setActive(!active)}
 					>
 						<CircleIcon
-                            icon={faCircle}
+                            icon={active ? fasCircle : faCircle}
 							size={isMobile ? 'xs' : 'sm'}
 						/>
 					</a>
@@ -41,10 +41,10 @@ export default function DotNav() {
 				<li>
 					<a
 						href="#projects"
-						onClick={() => setActive(true)}
+						onClick={() => setActive(!active)}
 					>
 						<CircleIcon
-                            icon={faCircle}
+                            icon={active ? fasCircle : faCircle}
 							size={isMobile ? 'xs' : 'sm'}
 						/>
 					</a>
