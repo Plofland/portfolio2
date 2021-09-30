@@ -2,34 +2,28 @@ import React from 'react';
 import styled from 'styled-components';
 import { useMediaQuery } from 'react-responsive';
 import { colors } from '../Themes';
+import { IProject } from './Interfaces';
 
-// interface ProjectState = {
+interface props {
+	project: IProject;
+}
 
-// }
-
-export default function ProjectCard(props) {
+export default function ProjectCard({ project }: props) {
 	const isMobile = useMediaQuery({
 		query: '(max-width: 750px)'
 	});
 
-	const {
-		hrefLink,
-		description,
-		imgSrc,
-		imgAlt,
-		projectName
-	} = props.project;
 	return (
-		<Project>
+		<ProjectContainer>
 			<ProjectTile
-				href={hrefLink}
+				href={project.hrefLink}
 				target="_blank"
 				rel="noreferrer"
 			>
 				<ImageContainer>
 					{isMobile ? (
 						<TextOverlay>
-							<p>{description}</p>
+							<p>{project.description}</p>
 						</TextOverlay>
 					) : (
 						<div>
@@ -39,26 +33,30 @@ export default function ProjectCard(props) {
 
 					{/* {isMobile && (
 						<TextOverlay>
-							<p>{description}</p>
+							<p>{project.description}</p>
 						</TextOverlay>
 					)} */}
-					<img src={imgSrc} alt={imgAlt} />
+					<img
+						src={project.imgSrc}
+						alt={project.imgAlt}
+					/>
 				</ImageContainer>
 				<ProjectTitle>
 					<span className="code">&lt;</span>
-					{projectName}
+					{project.projectName}
 					<span className="code">&#47;&gt;</span>
 				</ProjectTitle>
 			</ProjectTile>
-		</Project>
+		</ProjectContainer>
 	);
 }
 
-const Project = styled.div`
+const ProjectContainer = styled.div`
 	display: flex;
 	flex-direction: column;
-	width: 25%;
-	margin: 2%;
+	width: 300px;
+	margin: 1rem;
+	border: 1px solid white;
 `;
 
 const ProjectTile = styled.a`
@@ -67,13 +65,17 @@ const ProjectTile = styled.a`
 	border-radius: 5px;
 	text-decoration: none;
 
-    &:hover{
-       color: ${colors.darkText} 
-    }
+	&:hover {
+		color: ${colors.darkText};
+	}
 `;
 
 const ImageContainer = styled.div`
 	position: relative;
+	display: flex;
+	img {
+		width: 100%;
+	}
 `;
 
 const TextOverlay = styled.div`
@@ -91,19 +93,14 @@ const TextOverlay = styled.div`
 
 const ProjectTitle = styled.h4`
 	display: flex;
-	background-color: blue;
-	background-image: linear-gradient(
-		to top,
-		blue,
-		rgba(255, 255, 255, 0.4)
-	);
+	background-color: gray;
+	flex-grow: 1;
+	margin: 0;
 	color: black;
 	text-align: center;
 	justify-content: center;
 	align-items: center;
-	height: 3rem;
-	padding: 3% 3%;
-	border-radius: 0 0 5px 5px;
+	padding: 1rem;
 
 	.code {
 		opacity: 0;
