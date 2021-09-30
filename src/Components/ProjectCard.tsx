@@ -4,30 +4,14 @@ import { useMediaQuery } from 'react-responsive';
 import { colors } from '../Themes';
 import { IProject } from './Interfaces';
 
-// interface IProject {
-// 	hrefLink: string;
-// 	description: string;
-// 	imgSrc: string;
-// 	imgAlt: string;
-// 	projectName: string;
-// }
-
 interface props {
 	project: IProject;
 }
 
-export default function ProjectCard({project}: props) {
+export default function ProjectCard({ project }: props) {
 	const isMobile = useMediaQuery({
 		query: '(max-width: 750px)'
 	});
-
-	// const {
-	// 	hrefLink,
-	// 	description,
-	// 	imgSrc,
-	// 	imgAlt,
-	// 	projectName
-	// } = props.project;
 
 	return (
 		<ProjectContainer>
@@ -47,12 +31,15 @@ export default function ProjectCard({project}: props) {
 						</div>
 					)}
 
-					{isMobile && (
+					{/* {isMobile && (
 						<TextOverlay>
 							<p>{project.description}</p>
 						</TextOverlay>
-					)}
-					<img src={project.imgSrc} alt={project.imgAlt} />
+					)} */}
+					<img
+						src={project.imgSrc}
+						alt={project.imgAlt}
+					/>
 				</ImageContainer>
 				<ProjectTitle>
 					<span className="code">&lt;</span>
@@ -67,8 +54,9 @@ export default function ProjectCard({project}: props) {
 const ProjectContainer = styled.div`
 	display: flex;
 	flex-direction: column;
-	width: 25%;
-	margin: 2%;
+	width: 300px;
+	margin: 1rem;
+	border: 1px solid white;
 `;
 
 const ProjectTile = styled.a`
@@ -84,6 +72,10 @@ const ProjectTile = styled.a`
 
 const ImageContainer = styled.div`
 	position: relative;
+	display: flex;
+	img {
+		width: 100%;
+	}
 `;
 
 const TextOverlay = styled.div`
@@ -101,19 +93,14 @@ const TextOverlay = styled.div`
 
 const ProjectTitle = styled.h4`
 	display: flex;
-	background-color: blue;
-	background-image: linear-gradient(
-		to top,
-		blue,
-		rgba(255, 255, 255, 0.4)
-	);
+	background-color: gray;
+	flex-grow: 1;
+	margin: 0;
 	color: black;
 	text-align: center;
 	justify-content: center;
 	align-items: center;
-	height: 3rem;
-	padding: 3% 3%;
-	border-radius: 0 0 5px 5px;
+	padding: 1rem;
 
 	.code {
 		opacity: 0;

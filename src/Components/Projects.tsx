@@ -4,18 +4,6 @@ import projectsList from '../projectsList'
 import ProjectCard from './ProjectCard';
 import { IProject } from './Interfaces';
 
-// interface IProject {
-// 	hrefLink: string;
-// 	description: string;
-// 	imgSrc: string;
-// 	imgAlt: string;
-// 	projectName: string;
-// }
-
-// type Props = {
-//     projectsList: 
-// }
-
 export default function Projects() {
 
     // let options = {
@@ -25,9 +13,9 @@ export default function Projects() {
     //   }
       
     //   let observer = new IntersectionObserver(callback, options);
-console.log(projectsList)
+
 	return (
-		<StyledProjects id="projects">
+		<ProjectsSection id="projects">
 			<SectionTitle>Projects</SectionTitle>
 			<ProjectsContainer>
 				{projectsList.map((project: IProject, key: number) => {
@@ -39,12 +27,15 @@ console.log(projectsList)
 					);
 				})}
 			</ProjectsContainer>
-		</StyledProjects>
+		</ProjectsSection>
 	);
 }
 
-const StyledProjects = styled.div`
+const ProjectsSection = styled.div`
 	display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 	height: 100vh;
 	padding: 2rem;
 	background-color: blue;
@@ -56,4 +47,6 @@ const SectionTitle = styled.div`
 
 const ProjectsContainer = styled.div`
 	display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 `;
