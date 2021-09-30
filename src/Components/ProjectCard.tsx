@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useMediaQuery } from 'react-responsive';
 import { colors } from '../Themes';
@@ -13,60 +13,61 @@ export default function ProjectCard({ project }: props) {
 		query: '(max-width: 750px)'
 	});
 
-	return (
-		<ProjectContainer>
-			<ProjectTile
-				href={project.hrefLink}
-				target="_blank"
-				rel="noreferrer"
-			>
-				<ImageContainer>
-					{isMobile ? (
-						<TextOverlay>
-							<p>{project.description}</p>
-						</TextOverlay>
-					) : (
-						<div>
-							<p></p>
-						</div>
-					)}
+	const [isHidden, SetIsHidden] = useState<boolean>(true);
+	console.log(isHidden);
 
-					{/* {isMobile && (
+	return (
+		<ProjectTile
+            isHidden={isHidden}
+			href={project.hrefLink}
+			target="_blank"
+			rel="noreferrer"
+			onMouseEnter={() => SetIsHidden(!isHidden)}
+			onMouseLeave={() => SetIsHidden(!isHidden)}
+		>
+			<ImageContainer>
+				{isMobile ? (
+					<TextOverlay>
+						<p>{project.description}</p>
+					</TextOverlay>
+				) : (
+					<div>
+						<p></p>
+					</div>
+				)}
+
+				{/* {isMobile && (
 						<TextOverlay>
 							<p>{project.description}</p>
 						</TextOverlay>
 					)} */}
-					<img
-						src={project.imgSrc}
-						alt={project.imgAlt}
-					/>
-				</ImageContainer>
-				<ProjectTitle>
-					<span className="code">&lt;</span>
-					{project.projectName}
-					<span className="code">&#47;&gt;</span>
-				</ProjectTitle>
-			</ProjectTile>
-		</ProjectContainer>
+				<img
+					src={project.imgSrc}
+					alt={project.imgAlt}
+				/>
+			</ImageContainer>
+			<ProjectTitle>
+				<span className="code">&lt;</span>
+				{project.projectName}
+				<span className="code">&#47;&gt;</span>
+			</ProjectTitle>
+		</ProjectTile>
 	);
 }
 
-const ProjectContainer = styled.div`
-	display: flex;
-	flex-direction: column;
-	width: 300px;
-	margin: 1rem;
-	border: 1px solid white;
-`;
-
-const ProjectTile = styled.a`
+const ProjectTile = styled.a<{isHidden: boolean}>`
 	display: flex;
 	flex-direction: column;
 	border-radius: 5px;
 	text-decoration: none;
+	width: 300px;
+	margin: 1rem;
 
+	// border: 1px solid white;
+    
 	&:hover {
 		color: ${colors.darkText};
+        border: ${(props) => props.isHidden ? 'none' : ' 2px solid red'}
 	}
 `;
 
@@ -89,11 +90,13 @@ const TextOverlay = styled.div`
 	text-align: center;
 	opacity: 0;
 	border-radius: 5px 5px 0 0;
+	// border: 1px solid black;
 `;
 
 const ProjectTitle = styled.h4`
+	border: 1px solid white;
 	display: flex;
-	background-color: gray;
+	// background-color: gray;
 	flex-grow: 1;
 	margin: 0;
 	color: black;
@@ -101,6 +104,10 @@ const ProjectTitle = styled.h4`
 	justify-content: center;
 	align-items: center;
 	padding: 1rem;
+
+	&:hover {
+		transformy: 50px;
+	}
 
 	.code {
 		opacity: 0;
