@@ -56,7 +56,11 @@ const ProjectContainer = styled.div`
 	flex-direction: column;
 	width: 300px;
 	margin: 1rem;
-	border: 1px solid white;
+	// border: 1px solid white;
+
+	&:hover {
+		border: 2px solid red;
+	}
 `;
 
 const ProjectTile = styled.a`
@@ -64,6 +68,7 @@ const ProjectTile = styled.a`
 	flex-direction: column;
 	border-radius: 5px;
 	text-decoration: none;
+	border: 1px solid green;
 
 	&:hover {
 		color: ${colors.darkText};
@@ -93,7 +98,7 @@ const TextOverlay = styled.div`
 
 const ProjectTitle = styled.h4`
 	display: flex;
-	background-color: gray;
+	// background-color: gray;
 	flex-grow: 1;
 	margin: 0;
 	color: black;
