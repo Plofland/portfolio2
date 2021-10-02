@@ -6,14 +6,6 @@ import { IProject } from './Interfaces';
 
 export default function Projects() {
 
-    // let options = {
-    //     root: document.querySelector('#scrollArea'),
-    //     rootMargin: '0px',
-    //     threshold: 1.0
-    //   }
-      
-    //   let observer = new IntersectionObserver(callback, options);
-
 	return (
 		<ProjectsSection id="projects">
 			<SectionTitle>Projects</SectionTitle>
@@ -36,7 +28,6 @@ const ProjectsSection = styled.div`
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-	height: 100vh;
 	padding: 2rem;
 	background-color: blue;
 `;

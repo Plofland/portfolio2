@@ -14,11 +14,10 @@ export default function ProjectCard({ project }: props) {
 	});
 
 	const [isHidden, SetIsHidden] = useState<boolean>(true);
-	console.log(isHidden);
 
 	return (
 		<ProjectTile
-            isHidden={isHidden}
+			isHidden={isHidden}
 			href={project.hrefLink}
 			target="_blank"
 			rel="noreferrer"
@@ -46,16 +45,14 @@ export default function ProjectCard({ project }: props) {
 					alt={project.imgAlt}
 				/>
 			</ImageContainer>
-			<ProjectTitle>
-				<span className="code">&lt;</span>
+			<ProjectTitle isHidden={isHidden}>
 				{project.projectName}
-				<span className="code">&#47;&gt;</span>
 			</ProjectTitle>
 		</ProjectTile>
 	);
 }
 
-const ProjectTile = styled.a<{isHidden: boolean}>`
+const ProjectTile = styled.a<{ isHidden: boolean }>`
 	display: flex;
 	flex-direction: column;
 	border-radius: 5px;
@@ -64,16 +61,16 @@ const ProjectTile = styled.a<{isHidden: boolean}>`
 	margin: 1rem;
 
 	// border: 1px solid white;
-    
+
 	&:hover {
 		color: ${colors.darkText};
-        border: ${(props) => props.isHidden ? 'none' : ' 2px solid red'}
 	}
 `;
 
 const ImageContainer = styled.div`
 	position: relative;
 	display: flex;
+	z-index: 2;
 	img {
 		width: 100%;
 	}
@@ -93,8 +90,8 @@ const TextOverlay = styled.div`
 	// border: 1px solid black;
 `;
 
-const ProjectTitle = styled.h4`
-	border: 1px solid white;
+const ProjectTitle = styled.h4<{ isHidden: boolean }>`
+	// border: 1px solid white;
 	display: flex;
 	// background-color: gray;
 	flex-grow: 1;
@@ -104,13 +101,9 @@ const ProjectTitle = styled.h4`
 	justify-content: center;
 	align-items: center;
 	padding: 1rem;
+	z-index: 1;
 
-	&:hover {
-		transformy: 50px;
-	}
-
-	.code {
-		opacity: 0;
-		transition: 0.3s ease-in-out;
-	}
+	transform: ${(props) =>
+		props.isHidden ? 'translateY(-3rem)' : 'none'};
+	transition: ease-in-out 0.4s;
 `;

@@ -12,6 +12,8 @@ export default function DotNav() {
 	});
 	const [active, setActive] = useState(false);
 
+	const sections = ['#about', '#skills', '#projects'];
+
 	// console.log(active);
 	return (
 		<MainStay>
@@ -22,7 +24,11 @@ export default function DotNav() {
 						onClick={() => setActive(!active)}
 					>
 						<CircleIcon
-							icon={active ? fasCircle : faCircle}
+							icon={
+								active
+									? fasCircle
+									: faCircle
+							}
 							size={isMobile ? 'xs' : 'sm'}
 						/>
 					</a>
@@ -33,7 +39,11 @@ export default function DotNav() {
 						onClick={() => setActive(!active)}
 					>
 						<CircleIcon
-                            icon={active ? fasCircle : faCircle}
+							icon={
+								active
+									? fasCircle
+									: faCircle
+							}
 							size={isMobile ? 'xs' : 'sm'}
 						/>
 					</a>
@@ -44,7 +54,11 @@ export default function DotNav() {
 						onClick={() => setActive(!active)}
 					>
 						<CircleIcon
-                            icon={active ? fasCircle : faCircle}
+							icon={
+								active
+									? fasCircle
+									: faCircle
+							}
 							size={isMobile ? 'xs' : 'sm'}
 						/>
 					</a>
