@@ -17,7 +17,7 @@ export default function ProjectCard({ project }: props) {
 
 	return (
 		<ProjectTile
-            isHidden={isHidden}
+			isHidden={isHidden}
 			href={project.hrefLink}
 			target="_blank"
 			rel="noreferrer"
@@ -52,7 +52,7 @@ export default function ProjectCard({ project }: props) {
 	);
 }
 
-const ProjectTile = styled.a<{isHidden: boolean}>`
+const ProjectTile = styled.a<{ isHidden: boolean }>`
 	display: flex;
 	flex-direction: column;
 	border-radius: 5px;
@@ -70,7 +70,7 @@ const ProjectTile = styled.a<{isHidden: boolean}>`
 const ImageContainer = styled.div`
 	position: relative;
 	display: flex;
-    z-index: 2;
+	z-index: 2;
 	img {
 		width: 100%;
 	}
@@ -90,7 +90,7 @@ const TextOverlay = styled.div`
 	// border: 1px solid black;
 `;
 
-const ProjectTitle = styled.h4<{isHidden: boolean}>`
+const ProjectTitle = styled.h4<{ isHidden: boolean }>`
 	// border: 1px solid white;
 	display: flex;
 	// background-color: gray;
@@ -101,9 +101,9 @@ const ProjectTitle = styled.h4<{isHidden: boolean}>`
 	justify-content: center;
 	align-items: center;
 	padding: 1rem;
-    z-index: 1;
+	z-index: 1;
 
-    transform: ${(props) => props.isHidden ? 'translateY(-3rem)' : 'none'};
-    transition: ease-in-out .4s;
-
+	transform: ${(props) =>
+		props.isHidden ? 'translateY(-3rem)' : 'none'};
+	transition: ease-in-out 0.4s;
 `;
