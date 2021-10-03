@@ -21,8 +21,8 @@ export default function DotNav() {
 	return (
 		<MainStay>
 			<UnorderedNav>
-				{sections.map((section: string, key: number) => {
-					return <Dot key={key} section={section} />;
+				{sections.map((section: string) => {
+					return <Dot section={section} />;
 				})}
 				{/* <li>
 					<a
