@@ -6,27 +6,27 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-regular-svg-icons';
 import { faCircle as fasCircle } from '@fortawesome/free-solid-svg-icons';
 
-// interface props {
-// 	active: boolean
-// }
+interface Props {
+	section: string
+}
 
 // type props = {
 //     section: string
 //     key: number
 // }
 
-export default function Dot(section: string) {
+// export default function Dot(section: string) {
+export default function Dot({section}: Props) {
 	const isMobile = useMediaQuery({
 		query: '(max-width: 750px)'
 	});
 
 	const [active, setActive] = useState<boolean>(false);
-	console.log(section);
 
 	return (
 		<li>
 			<a
-				href="#about"
+				href={section}
 				onClick={() => setActive(!active)}
 			>
 				<CircleIcon
